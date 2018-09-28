@@ -15,14 +15,11 @@
     "src"
   ],
   "scripts": {
-    "test": "jest",
-    "coverage": "npm test -- --coverage",
-    "postcoverage": "opn coverage/lcov-report/index.html",
     "lint": "eslint .",
     "clean": "rimraf dist",
-    "prebuild": "npm run docs && npm run clean",
+    "prebuild": "npm run clean",
     "build": "babel src -d dist",
-    "preversion": "npm run lint && npm test && npm run build",
+    "preversion": "npm run lint && npm run build",
     "postpublish": "git push origin master --follow-tags"
   },
   "husky": {
@@ -44,7 +41,9 @@
     "samples",
     "examples"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "@google-cloud/storage": "^2.0.3"
+  },
   "devDependencies": {
     "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
@@ -52,16 +51,13 @@
     "@babel/preset-env": "^7.1.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
-    "babel-jest": "^23.6.0",
     "eslint": "^5.6.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^3.0.1",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^2.6.2",
     "husky": "^1.0.0-rc.14",
-    "jest-cli": "^23.6.0",
     "lint-staged": "^7.2.2",
-    "opn-cli": "^3.1.0",
     "prettier": "^1.14.2",
     "rimraf": "^2.6.2"
   }
